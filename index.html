@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sushil Chand — Senior Software Engineer, Backend & Distributed Systems</title>
+<meta name="description" content="Sushil Chand — Senior Backend Software Engineer with 9+ years designing and scaling distributed systems, cloud infrastructure and engineering teams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #101418;
+    --panel: #171b21;
+    --panel-2: #1d222a;
+    --line: #262b33;
+    --text-hi: #ecedef;
+    --text-mid: #b4bac2;
+    --text-lo: #7c8792;
+    --accent: #e8a33d;
+    --accent-dim: #e8a33d33;
+    --signal: #5bc9c0;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --max: 760px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text-mid);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--accent-dim); color:var(--text-hi); }
+
+  a{ color:var(--text-hi); text-decoration:none; }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  .wrap{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  .prose{ max-width:var(--max); }
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    color:var(--text-hi);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  /* ---------- top bar ---------- */
+  header.topbar{
+    border-bottom:1px solid var(--line);
+    padding:20px 0;
+  }
+  .topbar .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .brand{
+    font-family:var(--font-mono);
+    font-size:14px;
+    color:var(--text-hi);
+  }
+  .topbar nav{
+    display:flex;
+    gap:22px;
+    font-size:14px;
+  }
+  .topbar nav a{ color:var(--text-mid); }
+  .topbar nav a:hover{ color:var(--text-hi); }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:88px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .status-line{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--signal);
+    margin-bottom:28px;
+  }
+  .dot{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--signal);
+    box-shadow:0 0 0 0 rgba(91,201,192,0.6);
+    animation:pulse 2.4s infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(91,201,192,0.45); }
+    70%{ box-shadow:0 0 0 8px rgba(91,201,192,0); }
+    100%{ box-shadow:0 0 0 0 rgba(91,201,192,0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .dot{ animation:none; }
+  }
+
+  .hero h1{
+    font-size:clamp(38px, 6vw, 58px);
+    line-height:1.05;
+    margin-bottom:14px;
+  }
+  .hero .role{
+    font-family:var(--font-body);
+    font-size:19px;
+    color:var(--text-hi);
+    font-weight:500;
+    margin-bottom:20px;
+  }
+  .hero p.summary{
+    max-width:640px;
+    font-size:16px;
+    color:var(--text-mid);
+    margin-bottom:30px;
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--text-lo);
+  }
+  .hero-meta a{ color:var(--text-lo); border-bottom:1px solid transparent; }
+  .hero-meta a:hover{ color:var(--text-hi); border-color:var(--text-lo); }
+
+  /* ---------- metrics ---------- */
+  .metrics{
+    padding:52px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .metric-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .metric{
+    background:var(--bg);
+    padding:26px 22px;
+  }
+  .metric .num{
+    font-family:var(--font-display);
+    font-size:32px;
+    color:var(--accent);
+    font-weight:600;
+    line-height:1;
+    margin-bottom:8px;
+  }
+  .metric .label{
+    font-size:13px;
+    color:var(--text-lo);
+    line-height:1.4;
+  }
+  @media (max-width:760px){
+    .metric-grid{ grid-template-columns:repeat(2, 1fr); }
+  }
+
+  /* ---------- section shell ---------- */
+  section.block{
+    padding:64px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section.block:last-of-type{ border-bottom:none; }
+  .block-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:36px;
+    gap:16px;
+  }
+  .block-head h2{ font-size:26px; }
+  .block-head .count{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--text-lo);
+  }
+
+  /* ---------- experience timeline ---------- */
+  .timeline{
+    position:relative;
+    padding-left:26px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:4px; top:6px; bottom:6px;
+    width:1px;
+    background:var(--line);
+  }
+  .job{
+    position:relative;
+    padding-bottom:52px;
+  }
+  .job:last-child{ padding-bottom:0; }
+  .job::before{
+    content:"";
+    position:absolute;
+    left:-26px; top:6px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--accent);
+  }
+  .job-head{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:8px 20px;
+    margin-bottom:4px;
+  }
+  .job-title{
+    font-family:var(--font-display);
+    color:var(--text-hi);
+    font-size:19px;
+    font-weight:600;
+  }
+  .job-dates{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--text-lo);
+    white-space:nowrap;
+  }
+  .job-loc{
+    font-size:14px;
+    color:var(--text-lo);
+    margin-bottom:16px;
+  }
+  .job ul{
+    margin:0 0 18px;
+    padding-left:18px;
+  }
+  .job li{
+    margin-bottom:9px;
+    color:var(--text-mid);
+    font-size:15px;
+  }
+  .job li::marker{ color:var(--accent); }
+  .stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .stack span{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-lo);
+    border:1px solid var(--line);
+    padding:4px 9px;
+    border-radius:3px;
+  }
+
+  /* ---------- skills ---------- */
+  .skill-groups{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:32px 40px;
+  }
+  @media (max-width:640px){
+    .skill-groups{ grid-template-columns:1fr; }
+  }
+  .skill-group h3{
+    font-size:14px;
+    font-family:var(--font-mono);
+    color:var(--text-lo);
+    font-weight:400;
+    margin-bottom:12px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+  }
+  .skill-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .skill-tags span{
+    font-size:13.5px;
+    color:var(--text-mid);
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:5px 10px;
+    border-radius:3px;
+  }
+
+  /* ---------- education ---------- */
+  .edu-row{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px 20px;
+    align-items:baseline;
+  }
+  .edu-degree{
+    font-family:var(--font-display);
+    color:var(--text-hi);
+    font-size:18px;
+    font-weight:600;
+  }
+  .edu-school{ color:var(--text-mid); margin-top:4px; }
+  .edu-dates{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--text-lo);
+  }
+
+  /* ---------- contact / footer ---------- */
+  .contact{
+    padding:72px 0 56px;
+    text-align:left;
+  }
+  .contact h2{
+    font-size:clamp(28px,4vw,38px);
+    margin-bottom:16px;
+    max-width:560px;
+  }
+  .contact p{
+    max-width:520px;
+    margin-bottom:32px;
+  }
+  .contact-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-mono);
+    font-size:14px;
+    color:var(--bg);
+    background:var(--accent);
+    padding:12px 18px;
+    border-radius:3px;
+    font-weight:500;
+  }
+  .btn:hover{ background:#f2b256; color:var(--bg); }
+  .btn.ghost{
+    background:transparent;
+    color:var(--text-hi);
+    border:1px solid var(--line);
+  }
+  .btn.ghost:hover{ border-color:var(--text-lo); }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:24px 0;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-lo);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">SUSHIL CHAND</div>
+    <nav>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="status-line">
+      <span class="dot" aria-hidden="true"></span>
+      <span>open to senior backend / distributed systems roles</span>
+    </div>
+    <h1>Sushil Chand</h1>
+    <div class="role">Senior Software Engineer — Backend, Distributed Systems &amp; Cloud</div>
+    <p class="summary">
+      9+ years designing, building and scaling production-grade distributed systems and
+      cloud-native applications — from backend architecture and data pipelines to CI/CD
+      and team leadership. I own systems end-to-end: design, development, deployment,
+      monitoring and production operations.
+    </p>
+    <div class="hero-meta">
+      <span>Delhi, India</span>
+      <a href="mailto:chandsushil5@gmail.com">chandsushil5@gmail.com</a>
+      <a href="tel:+918698069093">+91 86980 69093</a>
+    </div>
+  </div>
+</section>
+
+<section class="metrics">
+  <div class="wrap">
+    <div class="metric-grid">
+      <div class="metric">
+        <div class="num">9+</div>
+        <div class="label">years building backend &amp; distributed systems</div>
+      </div>
+      <div class="metric">
+        <div class="num">3.5M+</div>
+        <div class="label">registered companies on a platform I lead</div>
+      </div>
+      <div class="metric">
+        <div class="num">13M+</div>
+        <div class="label">companies tracked in a lead management system I built</div>
+      </div>
+      <div class="metric">
+        <div class="num">40%</div>
+        <div class="label">backend &amp; report performance improvement</div>
+      </div>
+      <div class="metric">
+        <div class="num">30%</div>
+        <div class="label">latency reduction via async microservice messaging</div>
+      </div>
+      <div class="metric">
+        <div class="num">50%</div>
+        <div class="label">faster deployments from a cloud-agnostic framework</div>
+      </div>
+      <div class="metric">
+        <div class="num">35%</div>
+        <div class="label">infrastructure cost reduction via snapshot backups</div>
+      </div>
+      <div class="metric">
+        <div class="num">10K+</div>
+        <div class="label">users served by a job scheduling &amp; timesheet system</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="experience">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Experience</h2>
+      <span class="count">3 roles / 9 yrs</span>
+    </div>
+
+    <div class="timeline">
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Senior Software Engineer — Credhive Fintech</div>
+          <div class="job-dates">Sep 2024 – Present</div>
+        </div>
+        <div class="job-loc">Delhi, India</div>
+        <ul>
+          <li>Lead a backend engineering team — technical direction, architecture guidance, code reviews and delivery ownership for production systems.</li>
+          <li>Lead architecture and development of a scalable order management platform serving 3.5M+ registered and 10M+ unregistered companies.</li>
+          <li>Built automated CI/CD pipelines with GitHub Actions and containerized deployments through AWS ECS and Amazon ECR.</li>
+          <li>Designed data pipelines with pgSync to sync Amazon RDS PostgreSQL into OpenSearch for fast search and retrieval across large datasets.</li>
+          <li>Integrated AWS Cognito with MFA, and built an OTP verification workflow on AWS Lambda that cut OTP-related SMS costs.</li>
+          <li>Improved backend and report-generation performance by 40% through application and database optimization.</li>
+        </ul>
+        <div class="stack">
+          <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Redis</span>
+          <span>Docker</span><span>AWS ECS</span><span>Amazon ECR</span><span>AWS Lambda</span>
+          <span>AWS Cognito</span><span>OpenSearch</span><span>pgSync</span><span>GitHub Actions</span><span>Sentry</span>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Software Engineer II — Attentive.Ai</div>
+          <div class="job-dates">May 2022 – Apr 2024</div>
+        </div>
+        <div class="job-loc">Noida, India</div>
+        <ul>
+          <li>Led a cross-functional team responsible for backend architecture and delivery of job scheduling, crew management and timesheet automation.</li>
+          <li>Architected backend systems for job scheduling and timesheet automation supporting 10,000+ users.</li>
+          <li>Built a timezone-aware timesheet engine and automated clock-out system using Celery and Celery Beat.</li>
+          <li>Integrated Google Pub/Sub for asynchronous microservice communication, cutting latency by 30%.</li>
+          <li>Mentored junior engineers on codebase, architecture and production workflows; ran code reviews across the team.</li>
+        </ul>
+        <div class="stack">
+          <span>Python</span><span>Django</span><span>PostgreSQL</span><span>Docker</span>
+          <span>Celery</span><span>Celery Beat</span><span>GCP</span><span>Google Pub/Sub</span>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Software Engineer — Veritas Technologies</div>
+          <div class="job-dates">Jul 2017 – Apr 2022</div>
+        </div>
+        <div class="job-loc">Pune, India</div>
+        <ul>
+          <li>Served as Scrum Master for 2 years, running sprint planning, retrospectives and cross-functional coordination.</li>
+          <li>Built a cloud discovery platform across AWS, GCP and Azure, increasing platform adoption by 30%.</li>
+          <li>Refactored resource-fetching logic, cutting resource retrieval response time by 50%.</li>
+          <li>Designed a snapshot-based backup system that reduced cloud infrastructure costs by 35%.</li>
+          <li>Developed a cloud-agnostic deployment and testing framework, improving developer productivity by 50%.</li>
+        </ul>
+        <div class="stack">
+          <span>Python</span><span>C++</span><span>MongoDB</span><span>RabbitMQ</span>
+          <span>Docker</span><span>Linux</span><span>AWS</span><span>GCP</span><span>Azure</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Skills</h2>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>backend &amp; distributed systems</h3>
+        <div class="skill-tags">
+          <span>Python</span><span>FastAPI</span><span>Django</span><span>REST APIs</span>
+          <span>Microservices</span><span>Distributed Systems</span><span>Celery</span>
+          <span>Celery Beat</span><span>RabbitMQ</span><span>Google Pub/Sub</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>cloud &amp; infrastructure</h3>
+        <div class="skill-tags">
+          <span>AWS</span><span>GCP</span><span>Azure</span><span>Docker</span>
+          <span>AWS ECS</span><span>Amazon ECR</span><span>AWS Lambda</span>
+          <span>Amazon RDS</span><span>S3</span><span>API Gateway</span><span>CloudWatch</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>data &amp; search</h3>
+        <div class="skill-tags">
+          <span>PostgreSQL</span><span>MongoDB</span><span>Redis</span><span>OpenSearch</span>
+          <span>pgSync</span><span>Data Pipelines</span><span>Data Sync</span><span>ETL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>ci/cd &amp; devops</h3>
+        <div class="skill-tags">
+          <span>GitHub Actions</span><span>CI/CD</span><span>Docker</span><span>Containerization</span><span>Git</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>security</h3>
+        <div class="skill-tags">
+          <span>AWS Cognito</span><span>MFA</span><span>OTP Verification</span><span>Auth Flows</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>observability</h3>
+        <div class="skill-tags">
+          <span>CloudWatch</span><span>Sentry</span><span>New Relic</span><span>Cloudflare</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>technical leadership</h3>
+        <div class="skill-tags">
+          <span>System Architecture</span><span>Technical Strategy</span>
+          <span>Design Reviews</span><span>Code Reviews</span><span>Best Practices</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>people leadership</h3>
+        <div class="skill-tags">
+          <span>Team Leadership</span><span>Mentoring</span><span>Cross-Functional Collaboration</span>
+          <span>Agile / Scrum</span><span>Sprint Planning</span><span>Scrum Master</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="education">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Education</h2>
+    </div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-degree">Bachelor of Engineering, Information Technology</div>
+        <div class="edu-school">Army Institute of Technology, Pune</div>
+      </div>
+      <div class="edu-dates">2013 – 2017</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Hiring, or know a team that's a fit?</h2>
+    <p>I'm open to senior backend and distributed systems roles — happy to walk through
+      any of the systems above in more depth.</p>
+    <div class="contact-links">
+      <a class="btn" href="mailto:chandsushil5@gmail.com">Email me →</a>
+      <a class="btn ghost" href="tel:+918698069093">+91 86980 69093</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; width:100%;">
+    <span>Sushil Chand — Delhi, India</span>
+    <span>Built with a resume and a static site</span>
+  </div>
+</footer>
+
+</body>
+</html>

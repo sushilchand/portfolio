@@ -62,8 +62,17 @@
 
   /* ---------- top bar ---------- */
   header.topbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--bg);
     border-bottom:1px solid var(--line);
     padding:20px 0;
+    transition:box-shadow 0.3s ease, padding 0.3s ease;
+  }
+  header.topbar.scrolled{
+    padding:14px 0;
+    box-shadow:0 8px 24px -12px rgba(0,0,0,0.5);
   }
   .topbar .wrap{
     display:flex;
@@ -85,10 +94,71 @@
   .topbar nav a{ color:var(--text-mid); }
   .topbar nav a:hover{ color:var(--text-hi); }
 
+  /* ---------- scroll reveal ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(22px);
+    transition:opacity 0.7s cubic-bezier(.2,.7,.2,1), transform 0.7s cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .reveal-stagger.in-view > *{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .reveal-stagger > *{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity 0.6s cubic-bezier(.2,.7,.2,1), transform 0.6s cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal-stagger.in-view > *:nth-child(1){ transition-delay:0.03s; }
+  .reveal-stagger.in-view > *:nth-child(2){ transition-delay:0.09s; }
+  .reveal-stagger.in-view > *:nth-child(3){ transition-delay:0.15s; }
+  .reveal-stagger.in-view > *:nth-child(4){ transition-delay:0.21s; }
+  .reveal-stagger.in-view > *:nth-child(5){ transition-delay:0.27s; }
+  .reveal-stagger.in-view > *:nth-child(6){ transition-delay:0.33s; }
+  .reveal-stagger.in-view > *:nth-child(7){ transition-delay:0.39s; }
+  .reveal-stagger.in-view > *:nth-child(8){ transition-delay:0.45s; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal, .reveal-stagger > *{
+      opacity:1 !important;
+      transform:none !important;
+      transition:none !important;
+    }
+  }
+
   /* ---------- hero ---------- */
   .hero{
     padding:88px 0 64px;
     border-bottom:1px solid var(--line);
+  }
+  .hero .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:48px;
+  }
+  .hero-text{ flex:1; min-width:0; }
+  .hero-photo{
+    flex-shrink:0;
+    width:148px;
+    height:148px;
+    border-radius:50%;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:var(--panel);
+  }
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  @media (max-width:680px){
+    .hero .wrap{ flex-direction:column-reverse; align-items:flex-start; gap:28px; }
+    .hero-photo{ width:104px; height:104px; }
   }
   .status-line{
     display:flex;
@@ -393,29 +463,34 @@
 
 <section class="hero">
   <div class="wrap">
-    <div class="status-line">
-      <span class="dot" aria-hidden="true"></span>
-      <span>open to senior backend / distributed systems roles</span>
+    <div class="hero-text">
+      <div class="status-line">
+        <span class="dot" aria-hidden="true"></span>
+        <span>open to senior backend / distributed systems roles</span>
+      </div>
+      <h1>Sushil Chand</h1>
+      <div class="role">Senior Software Engineer — Backend, Distributed Systems &amp; Cloud</div>
+      <p class="summary">
+        9+ years designing, building and scaling production-grade distributed systems and
+        cloud-native applications — from backend architecture and data pipelines to CI/CD
+        and team leadership. I own systems end-to-end: design, development, deployment,
+        monitoring and production operations.
+      </p>
+      <div class="hero-meta">
+        <span>Delhi, India</span>
+        <a href="mailto:chandsushil5@gmail.com">chandsushil5@gmail.com</a>
+        <a href="tel:+918698069093">+91 86980 69093</a>
+      </div>
     </div>
-    <h1>Sushil Chand</h1>
-    <div class="role">Senior Software Engineer — Backend, Distributed Systems &amp; Cloud</div>
-    <p class="summary">
-      9+ years designing, building and scaling production-grade distributed systems and
-      cloud-native applications — from backend architecture and data pipelines to CI/CD
-      and team leadership. I own systems end-to-end: design, development, deployment,
-      monitoring and production operations.
-    </p>
-    <div class="hero-meta">
-      <span>Delhi, India</span>
-      <a href="mailto:chandsushil5@gmail.com">chandsushil5@gmail.com</a>
-      <a href="tel:+918698069093">+91 86980 69093</a>
+    <div class="hero-photo">
+      <img src="profile_photo.png" alt="Sushil Chand">
     </div>
   </div>
 </section>
 
 <section class="metrics">
   <div class="wrap">
-    <div class="metric-grid">
+    <div class="metric-grid reveal-stagger">
       <div class="metric">
         <div class="num">9+</div>
         <div class="label">years building backend &amp; distributed systems</div>
@@ -461,7 +536,7 @@
 
     <div class="timeline">
 
-      <div class="job">
+      <div class="job reveal">
         <div class="job-head">
           <div class="job-title">Senior Software Engineer — Credhive Fintech</div>
           <div class="job-dates">Sep 2024 – Present</div>
@@ -482,7 +557,7 @@
         </div>
       </div>
 
-      <div class="job">
+      <div class="job reveal">
         <div class="job-head">
           <div class="job-title">Software Engineer II — Attentive.Ai</div>
           <div class="job-dates">May 2022 – Apr 2024</div>
@@ -501,7 +576,7 @@
         </div>
       </div>
 
-      <div class="job">
+      <div class="job reveal">
         <div class="job-head">
           <div class="job-title">Software Engineer — Veritas Technologies</div>
           <div class="job-dates">Jul 2017 – Apr 2022</div>
@@ -529,7 +604,7 @@
     <div class="block-head">
       <h2>Skills</h2>
     </div>
-    <div class="skill-groups">
+    <div class="skill-groups reveal-stagger">
       <div class="skill-group">
         <h3>backend &amp; distributed systems</h3>
         <div class="skill-tags">
@@ -594,7 +669,7 @@
     <div class="block-head">
       <h2>Education</h2>
     </div>
-    <div class="edu-row">
+    <div class="edu-row reveal">
       <div>
         <div class="edu-degree">Bachelor of Engineering, Information Technology</div>
         <div class="edu-school">Army Institute of Technology, Pune</div>
@@ -604,7 +679,7 @@
   </div>
 </section>
 
-<section class="contact" id="contact">
+<section class="contact reveal" id="contact">
   <div class="wrap">
     <h2>Hiring, or know a team that's a fit?</h2>
     <p>I'm open to senior backend and distributed systems roles — happy to walk through
@@ -623,5 +698,37 @@
   </div>
 </footer>
 
+<script>
+  (function(){
+    var targets = document.querySelectorAll('.reveal, .reveal-stagger');
+    if(!('IntersectionObserver' in window) || targets.length === 0){
+      targets.forEach(function(el){ el.classList.add('in-view'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    targets.forEach(function(el){ observer.observe(el); });
+  })();
+
+  (function(){
+    var header = document.querySelector('header.topbar');
+    if(!header) return;
+    var onScroll = function(){
+      if(window.scrollY > 12){
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
 </body>
 </html>
